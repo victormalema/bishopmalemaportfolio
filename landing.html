@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bishop Dr. Zablon A. Malema | Founder & Presiding Bishop, Halleluyah Churches</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #0A1A0F;
+    --secondary: #1A5C2A;
+    --accent: #2E8B4A;
+    --accent-light: #4DBF6A;
+    --accent-vivid: #3AAD5C;
+    --accent-pale: #E8F5ED;
+    --bg: #F4F8F5;
+    --text: #111C14;
+    --text-muted: #5A7060;
+    --white: #FFFFFF;
+    --card-bg: rgba(255,255,255,0.9);
+    --glass: rgba(255,255,255,0.10);
+    --glass-border: rgba(46,139,74,0.28);
+    --shadow: 0 20px 60px rgba(10,26,15,0.13);
+    --shadow-green: 0 8px 32px rgba(46,139,74,0.22);
+    --grad-accent: linear-gradient(135deg, #2E8B4A 0%, #1A5C2A 100%);
+    --grad-accent-h: linear-gradient(135deg, #3AAD5C 0%, #2E8B4A 100%);
+    --grad-dark: linear-gradient(160deg, #0A1A0F 0%, #122A1A 50%, #0A1A0F 100%);
+    --grad-hero: linear-gradient(135deg, #0A1A0F 0%, #122A1A 50%, #0E2318 100%);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 1rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,26,15,0.93);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all .3s ease;
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    background: var(--grad-accent);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-size: 1.15rem; font-weight: 700; letter-spacing: .04em; text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: .85rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; transition: color .25s; }
+  .nav-links a:hover { color: var(--accent-light); }
+  .nav-cta { background: var(--grad-accent) !important; -webkit-background-clip: unset !important; -webkit-text-fill-color: var(--white) !important; color: var(--white) !important; padding: .45rem 1.2rem; border-radius: 4px; font-weight: 700 !important; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+  .nav-toggle span { width: 25px; height: 2px; background: var(--white); display: block; transition: .3s; }
+
+  #hero { min-height: 100vh; background: var(--grad-hero); display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 6rem 5% 4rem; position: relative; overflow: hidden; }
+  .hero-bg-pattern { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle at 20% 80%, rgba(46,139,74,0.12) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(26,92,42,0.18) 0%, transparent 50%); }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: .6rem; font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; }
+  .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--accent-light); }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 900; color: var(--white); line-height: 1.08; margin-bottom: 1rem; }
+  .hero-name span { display: block; background: var(--grad-accent-h); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.35rem); color: rgba(255,255,255,0.60); font-style: italic; margin-bottom: 2rem; line-height: 1.5; }
+  .hero-statement { font-size: clamp(.95rem, 1.4vw, 1.1rem); color: rgba(255,255,255,0.78); max-width: 520px; margin-bottom: 2.5rem; border-left: 3px solid var(--accent-light); padding-left: 1.2rem; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--grad-accent); color: var(--white); padding: .85rem 2rem; border-radius: 4px; font-weight: 700; font-size: .9rem; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; transition: all .3s; display: inline-flex; align-items: center; gap: .5rem; }
+  .btn-primary:hover { background: var(--grad-accent-h); transform: translateY(-2px); box-shadow: var(--shadow-green); }
+  .btn-outline { border: 1.5px solid rgba(46,139,74,0.55); color: var(--accent-light); padding: .85rem 2rem; border-radius: 4px; font-weight: 600; font-size: .9rem; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; transition: all .3s; display: inline-flex; align-items: center; gap: .5rem; }
+  .btn-outline:hover { border-color: var(--accent-light); background: rgba(46,139,74,0.10); }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.10); }
+  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; background: var(--grad-accent-h); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-stat-label { font-size: .75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: .1em; margin-top: .3rem; }
+  .hero-image-col { display: flex; justify-content: center; align-items: center; position: relative; z-index: 2; }
+  .hero-photo-frame { position: relative; width: min(400px, 90%); }
+  .hero-photo-badge { position: absolute; bottom: -1.5rem; left: -1.5rem; background: var(--grad-accent); color: var(--white); padding: 1rem 1.4rem; border-radius: 6px; font-size: .8rem; font-weight: 700; box-shadow: 0 8px 24px rgba(46,139,74,0.45); }
+  .hero-photo-badge span { display: block; font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+
+  section { padding: 6rem 5%; }
+  .section-label { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: .75rem; display: flex; align-items: center; gap: .6rem; }
+  .section-label::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--primary); line-height: 1.18; margin-bottom: 1rem; }
+  .section-title.light { color: var(--white); }
+  .section-subtitle { font-size: 1.05rem; color: var(--text-muted); max-width: 640px; margin-bottom: 3.5rem; }
+  .section-subtitle.light { color: rgba(255,255,255,0.55); }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  #biography { background: var(--white); }
+  .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+  .bio-sidebar { position: sticky; top: 7rem; }
+  .bio-sidebar-img { width: 100%; aspect-ratio: 3/4; background: linear-gradient(145deg, #d4e8da, #b8d4c0); border-radius: 8px; border: 2px solid rgba(46,139,74,0.25); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+  .bio-sidebar-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40%; background: linear-gradient(to top, rgba(10,26,15,0.5), transparent); }
+  .bio-quote-card { background: var(--primary); border-left: 4px solid var(--accent); border-radius: 6px; padding: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.88); line-height: 1.6; }
+  .bio-content p { font-size: 1.05rem; line-height: 1.9; color: #374151; margin-bottom: 1.5rem; }
+  .bio-content p:first-child::first-letter { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: var(--accent); float: left; line-height: .85; margin: .05em .15em 0 0; }
+  .bio-highlight { background: linear-gradient(135deg, #EDF7F0, #E4F3E9); border: 1px solid rgba(46,139,74,0.2); border-radius: 8px; padding: 1.5rem 2rem; margin: 2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--secondary); position: relative; }
+  .bio-highlight::before { content: '\201C'; font-size: 5rem; color: rgba(46,139,74,0.15); position: absolute; top: -.5rem; left: 1rem; font-family: 'Playfair Display', serif; line-height: 1; }
+
+  #ministry { background: var(--grad-dark); position: relative; overflow: hidden; }
+  #ministry::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 70% 50%, rgba(46,139,74,0.10), transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(26,92,42,0.08), transparent 50%); pointer-events: none; }
+  .timeline { position: relative; padding-left: 3rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, transparent, var(--accent), transparent); }
+  .timeline-item { position: relative; margin-bottom: 3.5rem; opacity: 0; transform: translateX(-20px); transition: all .6s ease; }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot { position: absolute; left: -3.6rem; top: .2rem; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; border: 3px solid #0A1A0F; box-shadow: 0 0 0 3px rgba(46,139,74,0.35); }
+  .timeline-year { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: .4rem; }
+  .timeline-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
+  .timeline-desc { font-size: .95rem; color: rgba(255,255,255,0.60); line-height: 1.7; }
+
+  #leadership { background: var(--bg); }
+  .leadership-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .leadership-card { background: var(--white); border: 1px solid rgba(46,139,74,0.15); border-radius: 10px; padding: 2rem; transition: all .35s; opacity: 0; transform: translateY(20px); position: relative; overflow: hidden; }
+  .leadership-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad-accent); transform: scaleX(0); transform-origin: left; transition: transform .35s; }
+  .leadership-card:hover::before { transform: scaleX(1); }
+  .leadership-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: rgba(46,139,74,0.3); }
+  .leadership-card.visible { opacity: 1; transform: translateY(0); }
+  .leadership-icon { width: 52px; height: 52px; background: linear-gradient(135deg, rgba(46,139,74,0.15), rgba(26,92,42,0.10)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent); margin-bottom: 1.2rem; }
+  .leadership-org { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--secondary); margin-bottom: .4rem; }
+  .leadership-role { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--primary); line-height: 1.3; }
+
+  #education { background: var(--grad-dark); position: relative; overflow: hidden; }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .edu-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 10px; padding: 1.8rem; backdrop-filter: blur(12px); transition: all .35s; opacity: 0; transform: translateY(20px); }
+  .edu-card.visible { opacity: 1; transform: translateY(0); }
+  .edu-card:hover { background: rgba(255,255,255,0.16); border-color: rgba(46,139,74,0.5); transform: translateY(-4px); }
+  .edu-type { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-light); margin-bottom: .5rem; }
+  .edu-degree { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; line-height: 1.3; }
+  .edu-inst { font-size: .88rem; color: rgba(255,255,255,0.50); display: flex; align-items: center; gap: .4rem; }
+
+  #books { background: var(--white); }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+  .book-card { display: flex; gap: 2rem; align-items: flex-start; background: var(--bg); border-radius: 10px; padding: 2rem; border: 1px solid rgba(46,139,74,0.12); transition: all .35s; opacity: 0; transform: translateY(20px); }
+  .book-card.visible { opacity: 1; transform: translateY(0); }
+  .book-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .book-cover { flex-shrink: 0; width: 100px; aspect-ratio: 2/3; background: var(--grad-dark); border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 4px 4px 16px rgba(10,26,15,0.25); }
+  .book-cover::after { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 6px; background: rgba(0,0,0,0.25); box-shadow: inset -3px 0 6px rgba(0,0,0,0.2); }
+  .book-cover-label { font-size: .55rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-align: center; padding: 0 .5rem; }
+  .book-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: rgba(46,139,74,0.3); line-height: 1; margin-bottom: .3rem; }
+  .book-info { flex: 1; }
+  .book-tag { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: .5rem; }
+  .book-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: .6rem; }
+  .book-author { font-size: .85rem; color: var(--text-muted); }
+
+  #achievements { background: var(--grad-dark); }
+  .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+  .achievement-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; transition: all .35s; opacity: 0; transform: translateY(20px); }
+  .achievement-card.visible { opacity: 1; transform: translateY(0); }
+  .achievement-card:hover { transform: translateY(-6px); border-color: rgba(46,139,74,0.5); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .achievement-body { padding: 1.8rem; }
+  .achievement-icon { width: 44px; height: 44px; background: rgba(46,139,74,0.18); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-light); margin-bottom: 1rem; }
+  .achievement-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .6rem; }
+  .achievement-desc { font-size: .9rem; color: rgba(255,255,255,0.58); line-height: 1.7; }
+
+  #impact { background: var(--white); }
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+  .impact-card { padding: 2rem; border-radius: 10px; border: 1px solid rgba(46,139,74,0.15); background: linear-gradient(135deg, #F4F8F5, #EAF3ED); transition: all .35s; opacity: 0; transform: translateY(20px); }
+  .impact-card.visible { opacity: 1; transform: translateY(0); }
+  .impact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .impact-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: .3rem; }
+  .impact-title { font-weight: 700; color: var(--primary); margin-bottom: .5rem; font-size: 1.05rem; }
+  .impact-desc { font-size: .9rem; color: var(--text-muted); line-height: 1.6; }
+
+  #media { background: var(--bg); }
+  .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .media-card { background: var(--white); border-radius: 10px; padding: 2rem; border: 1px solid rgba(46,139,74,0.12); transition: all .35s; opacity: 0; transform: translateY(20px); }
+  .media-card.visible { opacity: 1; transform: translateY(0); }
+  .media-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .media-icon { font-size: 2.2rem; color: var(--accent); margin-bottom: 1rem; }
+  .media-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: .5rem; }
+  .media-desc { font-size: .92rem; color: var(--text-muted); line-height: 1.7; }
+
+  #family { background: var(--grad-dark); text-align: center; }
+  .family-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.5rem; margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .family-chip { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 8px; padding: 1.2rem 1rem; transition: all .3s; opacity: 0; transform: scale(.9); }
+  .family-chip.visible { opacity: 1; transform: scale(1); }
+  .family-chip:hover { border-color: var(--accent); background: rgba(46,139,74,0.10); }
+  .family-chip-icon { font-size: 1.5rem; color: var(--accent-light); margin-bottom: .5rem; }
+  .family-chip-name { font-weight: 600; color: var(--white); font-size: .95rem; }
+  .family-chip-role { font-size: .75rem; color: rgba(255,255,255,0.42); margin-top: .2rem; }
+  .family-quote { max-width: 680px; margin: 3rem auto 0; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .family-spouse-card { max-width: 480px; margin: 2rem auto; background: var(--glass); border: 1px solid rgba(46,139,74,0.38); border-radius: 12px; padding: 2rem; display: flex; align-items: center; gap: 1.5rem; }
+  .spouse-avatar { width: 72px; height: 72px; border-radius: 50%; background: rgba(46,139,74,0.18); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--accent-light); flex-shrink: 0; }
+  .spouse-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: .25rem; }
+  .spouse-role { font-size: .85rem; color: rgba(255,255,255,0.48); }
+  .grandchildren-section { margin-top: 2rem; }
+  .grandchildren-label { font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: rgba(74,191,106,0.65); margin-bottom: 1rem; }
+  .grandchildren-list { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .grandchild-tag { background: rgba(46,139,74,0.12); border: 1px solid rgba(46,139,74,0.28); border-radius: 20px; padding: .4rem 1rem; font-size: .88rem; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--white); }
+
+  /* ── VIDEO REEL ── */
+  /* ── VIDEO REEL GRID ── */
+  .video-reel-section { margin-bottom: 4rem; }
+  .video-reel-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--accent);
+    display: flex; align-items: center; gap: .6rem; margin-bottom: 1.5rem;
+  }
+  .video-reel-label::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+  .video-reel-label i { color: var(--accent); font-size: .9rem; }
+
+  /* Featured (first) video — full width */
+  .video-featured {
+    position: relative; border-radius: 12px; overflow: hidden;
+    border: 2px solid rgba(46,139,74,0.40);
+    box-shadow: 0 24px 60px rgba(10,26,15,0.22);
+    background: var(--primary);
+    margin-bottom: 1rem;
+  }
+  .video-featured::before { content: ''; display: block; padding-top: 52%; }
+  .video-featured iframe,
+  .video-featured video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
+  .video-featured-badge {
+    position: absolute; top: 1rem; left: 1rem; z-index: 3;
+    background: var(--grad-accent); color: var(--white);
+    font-size: .65rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; padding: .3rem .75rem; border-radius: 3px;
+  }
+
+  /* Secondary grid — 3 columns */
+  .video-secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Third row — 3 columns (remaining reels) */
+  .video-third-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  /* Individual reel card */
+  .video-card {
+    position: relative; border-radius: 8px; overflow: hidden;
+    border: 1px solid rgba(46,139,74,0.25);
+    background: var(--primary);
+    box-shadow: 0 8px 24px rgba(10,26,15,0.18);
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .video-card:hover { transform: translateY(-4px); border-color: rgba(46,139,74,0.55); box-shadow: 0 16px 40px rgba(10,26,15,0.28); }
+  /* 16:9 ratio */
+  .video-card::before { content: ''; display: block; padding-top: 56.25%; }
+  .video-card iframe,
+  .video-card video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; display: block; }
+
+  /* Shared placeholder */
+  .video-placeholder {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: .75rem;
+    background: linear-gradient(135deg, #0A1A0F, #122A1A);
+    cursor: default;
+  }
+  .video-placeholder-icon {
+    width: 56px; height: 56px;
+    background: rgba(46,139,74,0.18);
+    border: 1.5px solid rgba(46,139,74,0.40);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; color: var(--accent-light); transition: all .3s;
+  }
+  .video-featured .video-placeholder-icon { width: 80px; height: 80px; font-size: 2rem; }
+  .video-card:hover .video-placeholder-icon { background: rgba(46,139,74,0.32); }
+  .video-placeholder-text {
+    font-family: 'Playfair Display', serif;
+    font-size: .85rem; color: rgba(255,255,255,0.40); text-align: center; padding: 0 .75rem;
+  }
+  .video-featured .video-placeholder-text { font-size: 1.1rem; color: rgba(255,255,255,0.55); }
+  .video-placeholder-num {
+    font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+    color: rgba(46,139,74,0.45); text-transform: uppercase;
+  }
+
+  /* Caption bar under each card */
+  .video-card-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: .5rem .75rem;
+    background: linear-gradient(to top, rgba(10,26,15,0.90), transparent);
+    font-size: .75rem; color: rgba(255,255,255,0.72); font-style: italic;
+    opacity: 0; transition: opacity .3s;
+    pointer-events: none;
+  }
+  .video-card:hover .video-card-caption,
+  .video-featured:hover .video-card-caption { opacity: 1; }
+
+  @media (max-width: 1024px) {
+    .video-secondary-grid { grid-template-columns: repeat(2, 1fr); }
+    .video-third-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .video-secondary-grid { grid-template-columns: 1fr; }
+    .video-third-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Gallery grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+  }
+  .gallery-item { border-radius: 8px; overflow: hidden; position: relative; border: 1px solid rgba(46,139,74,0.12); transition: all .3s; cursor: pointer; opacity: 0; transform: scale(.97); background: linear-gradient(145deg, #d4e8da, #b8d4c0); }
+  .gallery-item.visible { opacity: 1; transform: scale(1); }
+  .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow); z-index: 2; }
+  .gallery-item.tall { grid-row: span 2; }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; z-index: 1; }
+  .gallery-item .gallery-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; background: linear-gradient(145deg, #d4e8da, #b8d4c0); z-index: 0; }
+  .gallery-placeholder i { font-size: 2rem; color: rgba(46,139,74,0.4); }
+  .gallery-placeholder span { font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(26,92,42,0.45); text-align: center; padding: 0 1rem; }
+  .gallery-overlay { position: absolute; inset: 0; z-index: 2; background: rgba(10,26,15,0.52); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem; opacity: 0; transition: opacity .3s; }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay i { font-size: 2rem; color: var(--accent-light); }
+  .gallery-overlay span { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+
+  #lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(10,26,15,0.95); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 6px; object-fit: contain; }
+  #lightbox-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 2rem; cursor: pointer; transition: color .2s; }
+  #lightbox-close:hover { color: var(--accent-light); }
+  #lightbox-caption { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+
+  #contact { background: var(--grad-dark); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-info-items { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon-box { width: 44px; height: 44px; flex-shrink: 0; background: rgba(46,139,74,0.18); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--accent-light); }
+  .contact-item-label { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: .25rem; }
+  .contact-item-value { font-size: .95rem; color: rgba(255,255,255,0.78); }
+  .contact-form-area { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 12px; padding: 2.5rem; backdrop-filter: blur(12px); }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-label { display: block; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,0.48); margin-bottom: .4rem; }
+  .form-input, .form-textarea { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: .85rem 1rem; color: var(--white); font-size: .95rem; font-family: 'Inter', sans-serif; transition: border-color .25s; resize: vertical; }
+  .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.10); }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.28); }
+  .form-textarea { min-height: 120px; }
+  .form-submit { width: 100%; background: var(--grad-accent); color: var(--white); border: none; border-radius: 6px; padding: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: all .3s; font-family: 'Inter', sans-serif; }
+  .form-submit:hover { background: var(--grad-accent-h); transform: translateY(-2px); }
+
+  footer { background: #050E08; border-top: 1px solid rgba(46,139,74,0.18); padding: 3rem 5% 2rem; }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; max-width: 1200px; margin: 0 auto; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .footer-brand-sub { font-size: .78rem; color: rgba(255,255,255,0.32); letter-spacing: .08em; margin-top: .2rem; }
+  .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+  .footer-nav a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: .82rem; transition: color .25s; }
+  .footer-nav a:hover { color: var(--accent-light); }
+  .footer-social { display: flex; gap: 1rem; }
+  .social-btn { width: 38px; height: 38px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.48); font-size: .95rem; transition: all .25s; text-decoration: none; }
+  .social-btn:hover { background: rgba(46,139,74,0.18); border-color: var(--accent); color: var(--accent-light); }
+  .footer-bottom { max-width: 1200px; margin: 1.5rem auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .75rem; }
+  .footer-copy { font-size: .78rem; color: rgba(255,255,255,0.22); }
+  .footer-updated { font-size: .75rem; color: rgba(46,139,74,0.5); }
+
+  #btt { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 48px; height: 48px; background: var(--grad-accent); color: var(--white); border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(46,139,74,0.45); opacity: 0; transform: translateY(20px); transition: all .35s; }
+  #btt.show { opacity: 1; transform: translateY(0); }
+  #btt:hover { background: var(--grad-accent-h); transform: translateY(-3px); }
+
+  .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(46,139,74,0.35), transparent); }
+  .reveal { opacity: 0; transform: translateY(30px); transition: all .7s cubic-bezier(.16,1,.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 1024px) {
+    #hero { grid-template-columns: 1fr; padding-top: 7rem; text-align: center; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .hero-statement { text-align: left; }
+    .hero-image-col { margin-top: 3rem; }
+    .hero-stats { justify-content: center; }
+    .bio-grid { grid-template-columns: 1fr; }
+    .bio-sidebar { position: static; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.wide { grid-column: span 1; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,26,15,0.97); align-items: center; justify-content: center; gap: 2rem; z-index: 999; }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.1rem; }
+    .nav-toggle { display: flex; z-index: 1000; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 6rem 1.5rem 4rem; }
+    .hero-name { font-size: 2.5rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .family-spouse-card { flex-direction: column; text-align: center; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.tall { grid-row: span 1; }
+  }
+  @media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+    section { padding: 7rem 7%; }
+  }
+</style>
+</head>
+<body>
+
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+</div>
+
+<nav id="navbar">
+  <a class="nav-brand" href="#hero">BSP. DR. ZABLON A. MALEMA</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#biography">Biography</a></li>
+    <li><a href="#ministry">Ministry</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#family">Family</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Servant of God · Visionary Leader · Global Minister</div>
+    <h1 class="hero-name">Bishop Dr.<span>Zablon A. Malema</span></h1>
+    <p class="hero-title">Founder &amp; Presiding Bishop, Halleluyah Churches<br>Revivalist · International Speaker · Author</p>
+    <p class="hero-statement">"A distinguished servant of God, visionary leader, and seasoned minister of the Gospel who dedicated his life to the Lord in 1988 — proclaiming the Word with authority, accompanied by signs and wonders."</p>
+    <div class="hero-buttons">
+      <a href="#biography" class="btn-primary"><i class="fas fa-book-open"></i> Read Biography</a>
+      <a href="#contact" class="btn-outline"><i class="fas fa-envelope"></i> Connect</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num" data-count="35">0</div><div class="hero-stat-label">Years in Ministry</div></div>
+      <div><div class="hero-stat-num" data-count="7">0</div><div class="hero-stat-label">Academic Credentials</div></div>
+      <div><div class="hero-stat-num" data-count="5">0</div><div class="hero-stat-label">Children Blessed With</div></div>
+      <div><div class="hero-stat-num" data-count="10">0</div><div class="hero-stat-label">Leadership Positions</div></div>
+    </div>
+  </div>
+  <div class="hero-image-col">
+    <div class="hero-photo-frame">
+      <img src="IMG-20240729-WA0000.jpg" alt="Bishop Dr. Zablon A. Malema" style="width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:8px; border:2px solid rgba(46,139,74,0.45);">
+      <div class="hero-photo-badge"><span>2026</span>Updated Biography</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="biography">
+  <div class="container">
+    <div class="section-label">The Story</div>
+    <h2 class="section-title">A Life Dedicated to God &amp; Humanity</h2>
+    <div class="bio-grid">
+      <div class="bio-sidebar reveal">
+        <div class="bio-sidebar-img">
+         <img src="FB_IMG_1782115538235.jpg" alt="Bishop Dr. Zablon A. Malema"
+            style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0;">
+        </div>
+        <div class="bio-quote-card">"Widely regarded as a revivalist of this generation, his ministry continues to inspire spiritual awakening and transformation."</div>
+      </div>
+      <div class="bio-content reveal">
+        <p><strong>Bishop Dr. Zablon Amuliodo Malema</strong> is a distinguished servant of God, visionary leader, and seasoned minister of the Gospel who dedicated his life to the Lord in 1988. In 1991, he answered the divine call into pastoral ministry, marking the beginning of a remarkable journey of faith, leadership, and global impact.</p>
+        <div class="bio-highlight">"He is the Founder and Presiding Bishop of Halleluyah Churches, a vibrant ministry with a growing influence across Kenya and beyond."</div>
+        <p>Renowned as an international speaker, Bishop Malema has traversed nations, proclaiming the Word of God with authority, accompanied by signs and wonders. Widely regarded as a revivalist of this generation, his ministry continues to inspire spiritual awakening and transformation.</p>
+        <p>Academically accomplished, Bishop Malema has pursued professional training and extensive theological training. His credentials include a Pastors' Enhancement Certificate from Kisii University, an Advanced Diploma in Ministry from the Ministry Training Institute in Kuala Lumpur, Malaysia, and a Diploma in Public Administration from Kisii University. He also holds a Bachelor of Theology from Eldoret Bible College and a Bachelor of Arts in Public Administration and Political Science at Kisii University. In recognition of his profound contribution to Christian missions, he was awarded an Honorary Doctorate Degree from Lead Impact University, USA.
+          
+        </p>
+        <p>In addition to his pastoral calling, Bishop Malema serves as the Rift Valley Regional Director of the Kenya National Congress of Pentecostal Churches (KNCPC) and as Chaplain at Kisii University – Eldoret Campus. He has also played a pivotal role as Director of the National Prayer Programme Against Road Carnage in Kenya, championing spiritual and societal intervention against road tragedies.</p>
+        <p>A respected voice in media, he is a prominent television and radio preacher, currently serving as the Chairman of the African Ministers Network (AMN) – East Africa Chapter, and CEO of Emmanuel Rehabilitation Center. Bishop Malema is a Certified Professional Mediator and an author, best known for his books, <em>A Pastor with a Book</em> and <em>Seven Steps to Effective Living.</em>
+          His extensive service and leadership were recognized globally when he was hornored among the Top 100 international Leaders. 
+        </em>.</p>
+        <p> Bishop Malema Mission for Africa (BIMMA) is a Christian outreach ministry dedicated to proclaiming the Gospel of Jesus Christ across the African continent. Led by Bishop Dr. Malema, the mission seeks to inspire faith, transform lives, and advance the Kingdom of God. Through evangelism, discipleship, and community engagement, BIMMA reaches out to people in all African nations with the message of Christ's love and salvation.
+</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="ministry">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent-light)">Ministry Timeline</div>
+    <h2 class="section-title light">A Remarkable Journey of Faith</h2>
+    <p class="section-subtitle light">From his dedication to the Lord in 1988 to building a global ministry — the milestones that define Bishop Malema's calling.</p>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">1988</div><div class="timeline-title">Dedication to the Lord</div><div class="timeline-desc">Bishop Dr. Zablon Amuliodo Malema dedicated his life to the Lord, beginning a lifelong journey of faith and service to God.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">1991</div><div class="timeline-title">Answering the Divine Call</div><div class="timeline-desc">He answered the divine call into pastoral ministry, marking the beginning of a remarkable journey of faith, leadership, and global impact.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Ministry Foundation</div><div class="timeline-title">Founder, Halleluyah Churches</div><div class="timeline-desc">He founded Halleluyah Churches — a vibrant ministry with a growing influence across Kenya and beyond, inspiring spiritual awakening and transformation.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Academic Excellence</div><div class="timeline-title">Advanced Diploma in Ministry — Kuala Lumpur, Malaysia</div><div class="timeline-desc">Pursued his Advanced Diploma in Ministry at the Ministry Training Institute in Kuala Lumpur, Malaysia, extending his global theological formation.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Regional Leadership</div><div class="timeline-title">Rift Valley Regional Director, KNCPC</div><div class="timeline-desc">Appointed as Rift Valley Regional Director of the Kenya National Congress of Pentecostal Churches (KNCPC), providing denominational leadership across the region.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">National Service</div><div class="timeline-title">Director, National Prayer Programme Against Road Carnage</div><div class="timeline-desc">Played a pivotal role as Director of the National Prayer Programme Against Road Carnage in Kenya, championing spiritual and societal intervention against road tragedies.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Continental Impact</div><div class="timeline-title">Chairman, African Ministers Network — East Africa Chapter</div><div class="timeline-desc">Elected as Chairman of the African Ministers Network (AMN) – East Africa Chapter, extending his leadership and ministerial influence across the continent.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">Honorary Doctorate</div><div class="timeline-title">Doctor of Divinity — Lead Impact University, USA</div><div class="timeline-desc">In recognition of his profound contribution to Christian missions, awarded an Honorary Doctorate Degree from Lead Impact University, USA.</div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-year">2026</div><div class="timeline-title">Continuing Global Ministry</div><div class="timeline-desc">Presiding Bishop of Halleluyah Churches, prominent TV and radio preacher, CEO of Emmanuel Rehabilitation Center, Chaplain at Kisii University – Eldoret Campus, and Certified Professional Mediator — continuing to impact nations.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="leadership">
+  <div class="container">
+    <div class="section-label">Roles &amp; Positions</div>
+    <h2 class="section-title">Leadership Across Nations</h2>
+    <p class="section-subtitle">Every role Bishop Malema holds is an expression of his broad calling — from the local pulpit to continental and international platforms.</p>
+    <div class="leadership-grid">
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-church"></i></div><div class="leadership-org">Halleluyah Churches</div><div class="leadership-role">Founder &amp; Presiding Bishop</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-map-marked-alt"></i></div><div class="leadership-org">Kenya National Congress of Pentecostal Churches (KNCPC)</div><div class="leadership-role">Rift Valley Regional Director</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-graduation-cap"></i></div><div class="leadership-org">Kisii University – Eldoret Campus</div><div class="leadership-role">University Chaplain</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-road"></i></div><div class="leadership-org">National Prayer Programme Against Road Carnage — Kenya</div><div class="leadership-role">Director</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-globe-africa"></i></div><div class="leadership-org">African Ministers Network (AMN)</div><div class="leadership-role">Chairman, East Africa Chapter</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-hands-helping"></i></div><div class="leadership-org">Emmanuel Rehabilitation Center</div><div class="leadership-role">Chief Executive Officer (CEO)</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-broadcast-tower"></i></div><div class="leadership-org">Television &amp; Radio Ministry</div><div class="leadership-role">Prominent TV &amp; Radio Preacher</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-balance-scale"></i></div><div class="leadership-org">Professional Mediation</div><div class="leadership-role">Certified Professional Mediator</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-microphone-alt"></i></div><div class="leadership-org">Global Platforms</div><div class="leadership-role">International Speaker &amp; Revivalist</div></div>
+      <div class="leadership-card"><div class="leadership-icon"><i class="fas fa-pen-nib"></i></div><div class="leadership-org">Christian Literature</div><div class="leadership-role">Author — Published Works in Ministry &amp; Life Coaching</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="education">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent-light)">Academic &amp; Professional Formation</div>
+    <h2 class="section-title light">Education &amp; Qualifications</h2>
+    <p class="section-subtitle light">Bishop Malema has pursued professional training and extensive theological formation across Kenya, Malaysia, and the United States.</p>
+    <div class="edu-grid">
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-award" style="margin-right:.4rem"></i>Honorary Doctorate</div><div class="edu-degree">Honorary Doctorate Degree — In recognition of profound contribution to Christian missions</div><div class="edu-inst"><i class="fas fa-university"></i> Lead Impact University, USA</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-scroll" style="margin-right:.4rem"></i>Bachelor of Theology</div><div class="edu-degree">Bachelor of Theology</div><div class="edu-inst"><i class="fas fa-university"></i> Eldoret Bible College, Kenya</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-scroll" style="margin-right:.4rem"></i>Bachelor of Arts</div><div class="edu-degree">Bachelor of Arts in Public Administration and Political Science</div><div class="edu-inst"><i class="fas fa-university"></i> Kisii University, Kenya</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-certificate" style="margin-right:.4rem"></i>Advanced Diploma</div><div class="edu-degree">Advanced Diploma in Ministry</div><div class="edu-inst"><i class="fas fa-globe"></i> Ministry Training Institute, Kuala Lumpur, Malaysia</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-certificate" style="margin-right:.4rem"></i>Diploma</div><div class="edu-degree">Diploma in Public Administration</div><div class="edu-inst"><i class="fas fa-university"></i> Kisii University, Kenya</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-certificate" style="margin-right:.4rem"></i>Enhancement Certificate</div><div class="edu-degree">Pastors' Enhancement Certificate</div><div class="edu-inst"><i class="fas fa-university"></i> Kisii University, Kenya</div></div>
+      <div class="edu-card"><div class="edu-type"><i class="fas fa-user-tie" style="margin-right:.4rem"></i>Professional Certification</div><div class="edu-degree">Certified Professional Mediator</div><div class="edu-inst"><i class="fas fa-briefcase"></i> Professional Mediation Practice</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="books">
+  <div class="container">
+    <div class="section-label">Published Works</div>
+    <h2 class="section-title">Books &amp; Publications</h2>
+    <p class="section-subtitle">Bishop Malema is a published author whose writings extend his ministry beyond the pulpit into homes, offices, and nations worldwide.</p>
+    <div class="books-grid">
+      <div class="book-card">
+        <div class="book-cover"><div class="book-num">01</div><div class="book-cover-label">BOOK COVER</div></div>
+        <div class="book-info">
+          <div class="book-tag"><i class="fas fa-tag"></i> Ministry · Leadership</div>
+          <div class="book-title">A Pastor with a Book</div>
+          <div class="book-author">By Bishop Dr. Zablon A. Malema</div>
+          <p style="font-size:.85rem;color:var(--text-muted);margin-top:.75rem;line-height:1.6;">A literary contribution from Bishop Malema on pastoral ministry, drawing from decades of experience as a servant of the Gospel.</p>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-cover"><div class="book-num">02</div><div class="book-cover-label">BOOK COVER</div></div>
+        <div class="book-info">
+          <div class="book-tag"><i class="fas fa-tag"></i> Self-Development · Faith</div>
+          <div class="book-title">Seven Steps to Effective Living</div>
+          <div class="book-author">By Bishop Dr. Zablon A. Malema</div>
+          <p style="font-size:.85rem;color:var(--text-muted);margin-top:.75rem;line-height:1.6;">A transformative guide to purposeful living, drawing on Bishop Malema's wisdom as a visionary leader, minister, and Certified Professional Mediator.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="achievements">
+  <div class="container">
+    <div class="section-label" style="color:var(--accent-light)">Milestones &amp; Honours</div>
+    <h2 class="section-title light">Achievement Showcase</h2>
+    <p class="section-subtitle light">A life of excellence — from founding a vibrant church network to receiving international recognition for contributions to Christian missions.</p>
+    <div class="achievements-grid">
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-church"></i></div><div class="achievement-title">Founder, Halleluyah Churches</div><div class="achievement-desc">Founded Halleluyah Churches — a vibrant ministry with a growing influence across Kenya and beyond, inspiring spiritual awakening and transformation across nations.</div></div></div>
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-award"></i></div><div class="achievement-title">Honorary Doctorate — Lead Impact University, USA</div><div class="achievement-desc">Awarded an Honorary Doctorate Degree from Lead Impact University, USA, in recognition of his profound contribution to Christian missions globally.</div></div></div>
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-globe-africa"></i></div><div class="achievement-title">Chairman, African Ministers Network — East Africa Chapter</div><div class="achievement-desc">Elected as Chairman of the African Ministers Network (AMN) – East Africa Chapter, leading and uniting ministers across the East African region under a common vision.</div></div></div>
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-road"></i></div><div class="achievement-title">Director, National Prayer Programme Against Road Carnage</div><div class="achievement-desc">Played a pivotal role as Director of the National Prayer Programme Against Road Carnage in Kenya, championing spiritual and societal intervention against road tragedies.</div></div></div>
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-hands-helping"></i></div><div class="achievement-title">CEO, Emmanuel Rehabilitation Center</div><div class="achievement-desc">Leads Emmanuel Rehabilitation Center as Chief Executive Officer, extending the ministry's compassion and transformative impact to vulnerable communities in need of restoration.</div></div></div>
+      <div class="achievement-card"><div class="achievement-body"><div class="achievement-icon"><i class="fas fa-broadcast-tower"></i></div><div class="achievement-title">Prominent Television &amp; Radio Preacher</div><div class="achievement-desc">A respected voice in media, Bishop Malema is a prominent television and radio preacher — carrying the Gospel into homes and communities far beyond the walls of any church building.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="impact">
+  <div class="container">
+    <div class="section-label">Societal Impact</div>
+    <h2 class="section-title">Community &amp; National Impact</h2>
+    <p class="section-subtitle">Bishop Malema's ministry extends beyond the pulpit — addressing national crises, rehabilitating lives, training chaplains, and shaping public discourse through faith.</p>
+    <div class="impact-grid">
+      <div class="impact-card"><div class="impact-num"><i class="fas fa-road" style="font-size:2rem"></i></div><div class="impact-title">National Prayer Programme Against Road Carnage</div><div class="impact-desc">As Director, Bishop Malema championed spiritual and societal intervention against road tragedies in Kenya — uniting prayer, advocacy, and community action to combat one of the nation's most devastating crises.</div></div>
+      <div class="impact-card"><div class="impact-num"><i class="fas fa-hands-helping" style="font-size:2rem"></i></div><div class="impact-title">Emmanuel Rehabilitation Center</div><div class="impact-desc">As CEO, Bishop Malema leads the Emmanuel Rehabilitation Center — providing restoration, hope, and practical support to individuals and families in need, embodying the ministry of healing and wholeness.</div></div>
+      <div class="impact-card"><div class="impact-num"><i class="fas fa-graduation-cap" style="font-size:2rem"></i></div><div class="impact-title">University Chaplaincy — Kisii University, Eldoret Campus</div><div class="impact-desc">Serving as Chaplain at Kisii University – Eldoret Campus, Bishop Malema shapes the spiritual and moral formation of the next generation of Kenyan scholars and professionals.</div></div>
+      <div class="impact-card"><div class="impact-num"><i class="fas fa-balance-scale" style="font-size:2rem"></i></div><div class="impact-title">Certified Professional Mediation</div><div class="impact-desc">As a Certified Professional Mediator, Bishop Malema brings conflict resolution expertise to communities, organizations, and individuals — bridging divides and facilitating reconciliation beyond the church context.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="media-speaking">
+  <div class="container">
+    <div class="section-label">Voice &amp; Platform</div>
+    <h2 class="section-title">Media &amp; International Speaking</h2>
+    <p class="section-subtitle">Bishop Malema carries the Word of God to the nations — through television, radio, international conference platforms, and the written word.</p>
+    <div class="media-grid">
+      <div class="media-card"><div class="media-icon"><i class="fas fa-tv"></i></div><div class="media-title">Television Ministry</div><div class="media-desc">A prominent television preacher, Bishop Malema's TV ministry brings the Gospel into millions of homes, accompanied by signs and wonders, inspiring spiritual awakening and transformation.</div></div>
+      <div class="media-card"><div class="media-icon"><i class="fas fa-broadcast-tower"></i></div><div class="media-title">Radio Preaching</div><div class="media-desc">Through radio ministry, Bishop Malema reaches communities across Kenya and East Africa — proclaiming the Word of God with authority and power to audiences in diverse contexts.</div></div>
+      <div class="media-card"><div class="media-icon"><i class="fas fa-microphone"></i></div><div class="media-title">International Speaking</div><div class="media-desc">Renowned as an international speaker, Bishop Malema has traversed nations proclaiming the Word of God with authority, accompanied by signs and wonders. Widely regarded as a revivalist of this generation.</div></div>
+      <div class="media-card"><div class="media-icon"><i class="fas fa-globe-africa"></i></div><div class="media-title">African Ministers Network — East Africa Chapter</div><div class="media-desc">As Chairman of the African Ministers Network (AMN) – East Africa Chapter, Bishop Malema convenes, mobilises, and equips ministers across the region for greater Kingdom impact.</div></div>
+      <div class="media-card"><div class="media-icon"><i class="fas fa-pen-fancy"></i></div><div class="media-title">Published Author</div><div class="media-desc">Bishop Malema's written ministry — including <em>A Pastor with a Book</em> and <em>Seven Steps to Effective Living</em> — extends his impact to readers and leaders far beyond the reach of any single event or platform.</div></div>
+      <div class="media-card"><div class="media-icon"><i class="fas fa-fire"></i></div><div class="media-title">Revivalist Ministry</div><div class="media-desc">Widely regarded as a revivalist of this generation, Bishop Malema's ministry continues to inspire spiritual awakening and transformation wherever he ministers — in Kenya and across the globe.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="family">
+  <div class="container" style="text-align:center">
+    <div class="section-label" style="justify-content:center">Family &amp; Legacy</div>
+    <h2 class="section-title light">Rooted in Faith, Blessed in Family</h2>
+    <p class="section-subtitle light" style="margin:0 auto 2.5rem;">He is happily married to Rev. Leah Musimbi Malema, and together they are blessed with five children and three grandchildren.</p>
+    <div class="family-spouse-card">
+      <div class="spouse-avatar"><i class="fas fa-heart"></i></div>
+      <div>
+        <div class="spouse-name">Rev. Leah Musimbi Malema</div>
+        <div class="spouse-role">Beloved Spouse · Minister of the Gospel</div>
+      </div>
+    </div>
+    <div class="family-grid">
+      <div class="family-chip"><div class="family-chip-icon"><i class="fas fa-cross"></i></div><div class="family-chip-name">Faith</div><div class="family-chip-role">Child</div></div>
+      <div class="family-chip"><div class="family-chip-icon"><i class="fas fa-dove"></i></div><div class="family-chip-name">Mercy</div><div class="family-chip-role">Child</div></div>
+      <div class="family-chip"><div class="family-chip-icon"><i class="fas fa-star"></i></div><div class="family-chip-name">Brian</div><div class="family-chip-role">Child</div></div>
+      <div class="family-chip"><div class="family-chip-icon"><i class="fas fa-seedling"></i></div><div class="family-chip-name">Patience</div><div class="family-chip-role">Child</div></div>
+      <div class="family-chip"><div class="family-chip-icon"><i class="fas fa-crown"></i></div><div class="family-chip-name">Victor</div><div class="family-chip-role">Child</div></div>
+    </div>
+    <div class="grandchildren-section" style="margin-top:2.5rem">
+      <div class="grandchildren-label">A Proud Grandfather To</div>
+      <div class="grandchildren-list">
+        <span class="grandchild-tag"><i class="fas fa-star" style="font-size:.7rem;margin-right:.3rem;color:var(--accent-light)"></i>Shannah</span>
+        <span class="grandchild-tag"><i class="fas fa-star" style="font-size:.7rem;margin-right:.3rem;color:var(--accent-light)"></i>Charisah</span>
+        <span class="grandchild-tag"><i class="fas fa-star" style="font-size:.7rem;margin-right:.3rem;color:var(--accent-light)"></i>Nathaniel</span>
+      </div>
+    </div>
+    <div class="family-quote">"He is happily married to Rev. Leah Musimbi Malema, and together they are blessed with five children: Faith, Mercy, Brian, Patience, and Victor. He is also a proud grandfather to Shannah, Charisah and Nathaniel."</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PHOTO GALLERY & VIDEO REEL
+     ═══════════════════════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label">Gallery</div>
+    <h2 class="section-title">Photo Gallery &amp; Video Reel</h2>
+    <p class="section-subtitle">A visual record of ministry, leadership, speaking engagements, and community impact moments from Bishop Malema's journey.</p>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         VIDEO REELS — 7 slots in a featured + grid layout
+         ───────────────────────────────────────────────────────────
+         HOW TO ADD YOUR VIDEOS:
+         Scroll down to the <script> section and find VIDEOS array.
+         Each entry has:
+           url     → paste your video link here
+           caption → short label shown on hover
+         Supported: YouTube, Vimeo, Facebook, direct .mp4
+         Leave url as "" to show a placeholder for that slot.
+         ═══════════════════════════════════════════════════════════ -->
+    <div class="video-reel-section">
+      <div class="video-reel-label"><i class="fas fa-play-circle"></i> Ministry Video Reels</div>
+
+      <!-- Featured reel (Video 1 — full width) -->
+      <div class="video-featured" id="video-0">
+        <div class="video-featured-badge"><i class="fas fa-star" style="margin-right:.3rem"></i>Featured</div>
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon"><i class="fas fa-play"></i></div>
+          <div class="video-placeholder-text">Featured Ministry Reel</div>
+          <div class="video-placeholder-num">Reel 01</div>
+        </div>
+        <div class="video-card-caption" id="caption-0"></div>
+      </div>
+
+      <!-- Secondary grid (Videos 2–4) -->
+      <div class="video-secondary-grid">
+        <div class="video-card" id="video-1">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 02</div></div>
+          <div class="video-card-caption" id="caption-1"></div>
+        </div>
+        <div class="video-card" id="video-2">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 03</div></div>
+          <div class="video-card-caption" id="caption-2"></div>
+        </div>
+        <div class="video-card" id="video-3">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 04</div></div>
+          <div class="video-card-caption" id="caption-3"></div>
+        </div>
+      </div>
+
+      <!-- Third row (Videos 5–7) -->
+      <div class="video-third-grid">
+        <div class="video-card" id="video-4">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 05</div></div>
+          <div class="video-card-caption" id="caption-4"></div>
+        </div>
+        <div class="video-card" id="video-5">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 06</div></div>
+          <div class="video-card-caption" id="caption-5"></div>
+        </div>
+        <div class="video-card" id="video-6">
+          <div class="video-placeholder"><div class="video-placeholder-icon"><i class="fas fa-play"></i></div><div class="video-placeholder-text">Reel 07</div></div>
+          <div class="video-card-caption" id="caption-6"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────
+         PHOTO GRID
+         ───────────────────────────────────────────────────────── -->
+    <div class="gallery-grid">
+      <div class="gallery-item tall" data-label="Tent meeting">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Tent Meeting</span></div>
+        <img src="FB_IMG_1753608041417.jpg" alt="Tent meeting">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Tent Meeting</span></div>
+      </div>
+      <div class="gallery-item" data-label="Bishop malema mission for africa">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Bishop malema mission for africa</span></div>
+        <img src="FB_IMG_1753608172129.jpg" alt="Speaking Engagement">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>BIMMA</span></div>
+      </div>
+      <div class="gallery-item" data-label="Soul winning">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Soul winning</span></div>
+        <img src="FB_IMG_1753608130344.jpg" alt="Soul winning">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Soul winning</span></div>
+      </div>
+      <div class="gallery-item tall" data-label="International Platform">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>BIMMA</span></div>
+        <img src="FB_IMG_1753608125330.jpg" alt="International Platform">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>BIMMA</span></div>
+      </div>
+      <div class="gallery-item wide" data-label="works of the lord">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Works of the Lord</span></div>
+        <img src="FB_IMG_1753608112337.jpg" alt="Works of the Lord">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Works of the Lord</span></div>
+      </div>
+      <div class="gallery-item" data-label="Community Impact">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Community Impact</span></div>
+        <img src="IMG-20251207-WA0026.jpg" alt="Community Impact">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Community Impact</span></div>
+      </div>
+      <div class="gallery-item" data-label="Leadership event">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Leadership event</span></div>
+        <img src="IMG-20251207-WA0043.jpg" alt="Leadership event">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Leadership event</span></div>
+      </div>
+      <div class="gallery-item" data-label="Family Legacy">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Family Legacy</span></div>
+        <img src="IMG-20250826-WA0013.jpg" alt="Family Legacy">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Family Legacy</span></div>
+      </div>
+      <div class="gallery-item" data-label="Family Legacy">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Awarding</span></div>
+        <img src="IMG-20260427-WA0002.jpg" alt="Family Legacy">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Awarding</span></div>
+      </div>
+      <div class="gallery-item" data-label="Family Legacy">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Outreach</span></div>
+        <img src="FB_IMG_1782115993558.jpg" alt="Family Legacy">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Outreach</span></div>
+      </div>
+      <div class="gallery-item" data-label="Family Legacy">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>Outreach</span></div>
+        <img src="FB_IMG_1782115918214.jpg" alt="Family Legacy">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>Outreach</span></div>
+      </div>
+      <div class="gallery-item" data-label="Family Legacy">
+        <div class="gallery-placeholder"><i class="fas fa-image"></i><span>word teaching</span></div>
+        <img src="FB_IMG_1782115656314.jpg" alt="Family Legacy">
+        <div class="gallery-overlay"><i class="fas fa-expand-alt"></i><span>word teaching</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-label" style="color:var(--accent-light)">Get in Touch</div>
+        <h2 class="section-title light">Connect with Bishop Malema</h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.58);line-height:1.8;margin-bottom:2rem;">For speaking engagements, ministry partnerships, media enquiries, or to connect with Halleluyah Churches and the African Ministers Network — East Africa Chapter.</p>
+        <div class="contact-info-items">
+          <div class="contact-item"><div class="contact-icon-box"><i class="fas fa-church"></i></div><div><div class="contact-item-label">Ministry</div><div class="contact-item-value">Halleluyah Churches</div></div></div>
+          <div class="contact-item"><div class="contact-icon-box"><i class="fas fa-globe-africa"></i></div><div><div class="contact-item-label">Network</div><div class="contact-item-value">African Ministers Network (AMN) — East Africa Chapter</div></div></div>
+          <div class="contact-item"><div class="contact-icon-box"><i class="fas fa-hands-helping"></i></div><div><div class="contact-item-label">Rehabilitation Center</div><div class="contact-item-value">Emmanuel Rehabilitation Center</div></div></div>
+          <div class="contact-item"><div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div><div><div class="contact-item-label">Region</div><div class="contact-item-value">Rift Valley Region, Kenya &amp; East Africa</div></div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="contact-form-area">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem;">Send a Message</h3>
+          <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" placeholder="Your full name"></div>
+          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@email.com"></div>
+          <div class="form-group"><label class="form-label">Subject</label><input class="form-input" type="text" placeholder="Speaking engagement / Ministry partnership / General inquiry"></div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Share your message here..."></textarea></div>
+          <button class="form-submit"><i class="fas fa-paper-plane" style="margin-right:.5rem"></i>Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">BSP. DR. ZABLON A. MALEMA</div>
+      <div class="footer-brand-sub">Founder &amp; Presiding Bishop · Halleluyah Churches · Est. 1988</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#biography">Biography</a>
+      <a href="#ministry">Ministry</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#education">Education</a>
+      <a href="#books">Books</a>
+      <a href="#impact">Impact</a>
+      <a href="#family">Family</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-social">
+      <a class="social-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a class="social-btn" href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a class="social-btn" href="#" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+      <a class="social-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Bishop Dr. Zablon A. Malema. Halleluyah Churches. All rights reserved.</div>
+    <div class="footer-updated">Biography Updated: January 5th, 2026</div>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+  /* ═══════════════════════════════════════════════════════════════
+     VIDEO REELS CONFIGURATION — Add your 7 video links here
+     ───────────────────────────────────────────────────────────────
+     Fill in the url for each reel below.
+     caption = short label shown on hover (can be left as-is).
+
+     Supported link formats:
+       YouTube  → https://www.youtube.com/watch?v=XXXXXXXXXXX
+                  https://youtu.be/XXXXXXXXXXX
+       Vimeo    → https://vimeo.com/XXXXXXXXX
+       Facebook → https://www.facebook.com/watch?v=XXXXXXXXX
+                  https://www.facebook.com/reel/XXXXXXXXX
+       Direct   → https://yoursite.com/video.mp4
+
+     Leave url as "" to keep the placeholder for that slot.
+     ═══════════════════════════════════════════════════════════════ */
+  const VIDEOS = [
+    { url: "6da6f0b4d1646462f38d4f8b84d103cd.mp4", caption: "Featured Ministry Reel" },       // Reel 01 — featured (full width)
+    { url: "c8bd8926e3f9655e4eb7f779504f2696 (1).mp4", caption: "Speaking Engagement" },          // Reel 02
+    { url: "6dfac467e2446e225fc7ca8e2957acd6.mp4", caption: "Revival Service" },              // Reel 03
+    { url: "14f86cee31edea53957c6eba77136efd.mp4", caption: "Leadership Message" },           // Reel 04
+    { url: "", caption: "Community Outreach" },           // Reel 05
+    { url: "", caption: "International Platform" },       // Reel 06
+    { url: "", caption: "Word of Encouragement" },        // Reel 07
+  ];
+
+  /* ── Auto-embed all videos ── */
+  function getEmbedHTML(url) {
+    if (!url) return null;
+    // YouTube
+    const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+    if (yt) return `<iframe src="https://www.youtube.com/embed/${yt[1]}?rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>`;
+    // Vimeo
+    const vm = url.match(/vimeo\.com\/(\d+)/);
+    if (vm) return `<iframe src="https://player.vimeo.com/video/${vm[1]}?byline=0&portrait=0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture"></iframe>`;
+    // Facebook
+    const fb = url.match(/facebook\.com\/(watch\?v=|reel\/)([0-9]+)/);
+    if (fb) { const enc = encodeURIComponent(url); return `<iframe src="https://www.facebook.com/plugins/video.php?href=${enc}&show_text=false&width=1280" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`; }
+    // Direct MP4
+    if (/\.(mp4|webm|ogg)(\?|$)/i.test(url)) return `<video controls preload="metadata"><source src="${url}" type="video/mp4"></video>`;
+    return null;
+  }
+
+  VIDEOS.forEach(function(v, i) {
+    const card = document.getElementById('video-' + i);
+    if (!card) return;
+    const embed = getEmbedHTML(v.url);
+    if (embed) {
+      const ph = card.querySelector('.video-placeholder');
+      if (ph) ph.style.display = 'none';
+      card.insertAdjacentHTML('beforeend', embed);
+    }
+    const cap = document.getElementById('caption-' + i);
+    if (cap && v.caption) cap.textContent = v.caption;
+  });
+
+  /* ── NAV ── */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = navToggle.querySelectorAll('span');
+    if (navLinks.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    } else {
+      spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+    }
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+  }));
+
+  /* ── SCROLL REVEAL ── */
+  const revealEls = document.querySelectorAll('.reveal, .timeline-item, .leadership-card, .edu-card, .book-card, .achievement-card, .impact-card, .media-card, .family-chip, .gallery-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 60); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ── COUNTERS ── */
+  const counters = document.querySelectorAll('[data-count]');
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target, target = +el.dataset.count;
+        let current = 0;
+        const step = target / 60;
+        const timer = setInterval(() => { current += step; if (current >= target) { current = target; clearInterval(timer); } el.textContent = Math.floor(current); }, 25);
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObserver.observe(c));
+
+  /* ── BACK TO TOP ── */
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => { btt.classList.toggle('show', window.scrollY > 500); });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── NAVBAR SCROLL ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => { navbar.style.background = window.scrollY > 80 ? 'rgba(5,14,8,0.98)' : 'rgba(10,26,15,0.93)'; });
+
+  /* ── ACTIVE NAV ── */
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent-light)' : ''; });
+  });
+
+  /* ── STAGGER DELAYS ── */
+  document.querySelectorAll('.leadership-grid .leadership-card').forEach((el, i) => { el.style.transitionDelay = (i * 0.07) + 's'; });
+  document.querySelectorAll('.edu-grid .edu-card').forEach((el, i) => { el.style.transitionDelay = (i * 0.07) + 's'; });
+  document.querySelectorAll('.achievements-grid .achievement-card').forEach((el, i) => { el.style.transitionDelay = (i * 0.10) + 's'; });
+  document.querySelectorAll('.media-grid .media-card').forEach((el, i) => { el.style.transitionDelay = (i * 0.07) + 's'; });
+  document.querySelectorAll('.gallery-grid .gallery-item').forEach((el, i) => { el.style.transitionDelay = (i * 0.05) + 's'; });
+  document.querySelectorAll('.family-chip').forEach((el, i) => { el.style.transitionDelay = (i * 0.07) + 's'; });
+
+  /* ── HERO FLOAT ── */
+  const heroPhotoFrame = document.querySelector('.hero-photo-frame');
+  if (heroPhotoFrame) { let t = 0; setInterval(() => { t += 0.02; heroPhotoFrame.style.transform = `translateY(${Math.sin(t) * 6}px)`; }, 30); }
+
+  /* ── GALLERY IMAGES ── */
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    if (!img.src || img.src.includes('YOUR_IMAGE') || img.getAttribute('src') === '') img.style.display = 'none';
+    img.addEventListener('error', () => { img.style.display = 'none'; });
+    img.addEventListener('load', () => { const p = img.closest('.gallery-item').querySelector('.gallery-placeholder'); if (p) p.style.display = 'none'; });
+  });
+
+  /* ── LIGHTBOX ── */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCap = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      if (!img || img.style.display === 'none') return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCap.textContent = item.dataset.label || img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; lightboxImg.src = ''; }
+</script>
+</body>
+</html>
