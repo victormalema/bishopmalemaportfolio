@@ -340,8 +340,12 @@
   .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.10); }
   .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.28); }
   .form-textarea { min-height: 120px; }
-  .form-submit { width: 100%; background: var(--grad-accent); color: var(--white); border: none; border-radius: 6px; padding: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: all .3s; font-family: 'Inter', sans-serif; }
-  .form-submit:hover { background: var(--grad-accent-h); transform: translateY(-2px); }
+  .form-submit { width: 100%; background: var(--grad-accent); color: var(--white); border: none; border-radius: 6px; padding: 1rem; font-size: .95rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; transition: all .3s; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: .5rem; }
+  .form-submit:hover:not(:disabled) { background: var(--grad-accent-h); transform: translateY(-2px); }
+  .form-submit:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+  .form-banner { display: none; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.25rem; font-size: .9rem; font-weight: 600; align-items: center; gap: .6rem; }
+  .form-banner.success { background: rgba(46,139,74,0.20); border: 1px solid rgba(46,139,74,0.45); color: var(--accent-light); }
+  .form-banner.error { background: rgba(180,30,30,0.18); border: 1px solid rgba(180,30,30,0.45); color: #f87171; }
 
   footer { background: #050E08; border-top: 1px solid rgba(46,139,74,0.18); padding: 3rem 5% 2rem; }
   .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; max-width: 1200px; margin: 0 auto; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -814,11 +818,21 @@
       <div class="reveal">
         <div class="contact-form-area">
           <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.5rem;">Send a Message</h3>
-          <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" placeholder="Your full name"></div>
-          <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="your@email.com"></div>
-          <div class="form-group"><label class="form-label">Subject</label><input class="form-input" type="text" placeholder="Speaking engagement / Ministry partnership / General inquiry"></div>
-          <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Share your message here..."></textarea></div>
-          <button class="form-submit"><i class="fas fa-paper-plane" style="margin-right:.5rem"></i>Send Message</button>
+          <div class="form-banner success" id="form-success">
+            <i class="fas fa-check-circle"></i>
+            Thank you! Your message has been sent — Bishop Malema's team will be in touch soon.
+          </div>
+          <div class="form-banner error" id="form-error">
+            <i class="fas fa-exclamation-circle"></i>
+            Something went wrong. Please try again.
+          </div>
+          <form id="contact-form" novalidate>
+            <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" name="name" type="text" placeholder="Your full name" required></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" name="email" type="email" placeholder="your@email.com" required></div>
+            <div class="form-group"><label class="form-label">Subject</label><input class="form-input" name="subject" type="text" placeholder="Speaking engagement / Ministry partnership / General inquiry"></div>
+            <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Share your message here..." required></textarea></div>
+            <button class="form-submit" id="form-btn" type="submit"><i class="fas fa-paper-plane"></i>Send Message</button>
+          </form>
         </div>
       </div>
     </div>
@@ -1012,6 +1026,50 @@
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
   function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; lightboxImg.src = ''; }
+
+  /* ── FORMSPREE AJAX SUBMIT ── */
+  const contactForm = document.getElementById('contact-form');
+  const formBtn     = document.getElementById('form-btn');
+  const formSuccess = document.getElementById('form-success');
+  const formError   = document.getElementById('form-error');
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    formSuccess.style.display = 'none';
+    formError.style.display   = 'none';
+
+    if (!contactForm.name.value.trim() || !contactForm.email.value.trim() || !contactForm.message.value.trim()) {
+      formError.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in your name, email, and message.';
+      formError.style.display = 'flex';
+      return;
+    }
+
+    formBtn.disabled = true;
+    formBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending\u2026';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xqevkjlk', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(contactForm)
+      });
+      if (res.ok) {
+        formSuccess.style.display = 'flex';
+        contactForm.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg = (data.errors && data.errors.map(function(e){ return e.message; }).join(', ')) || 'Submission failed. Please try again.';
+        formError.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + msg;
+        formError.style.display = 'flex';
+      }
+    } catch(err) {
+      formError.innerHTML = '<i class="fas fa-exclamation-circle"></i> Network error. Please check your connection and try again.';
+      formError.style.display = 'flex';
+    }
+
+    formBtn.disabled = false;
+    formBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+  });
 </script>
 </body>
 </html>
